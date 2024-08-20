@@ -30,19 +30,19 @@ jobs:
       id: cache-conda-env
       uses: actions/cache@v4.0.2
       with:
-        path: ~/anaconda/envs/autodent
+        path: ~/anaconda/envs/hello_3D_world_env
         key: ${{ runner.os }}-conda-${{ hashFiles('conda_env_windows_local.yml') }}
         restore-keys: ${{ runner.os }}-conda-
 
-    - name: Create Autodent environment if cache is not found
+    - name: Create hello_3D_world_env environment if cache is not found
       if: steps.cache-conda-env.outputs.cache-hit != 'true'
       run: |
         eval "$($HOME/anaconda/bin/conda shell.bash hook)"
-        conda env create -f conda_env_windows_local.yml
+        conda env create -f conda_env.yml
 
-    - name: Activate Autodent environment
+    - name: Activate hello_3D_world_env environment
       shell: bash
       run: |
         eval "$($HOME/anaconda/bin/conda shell.bash hook)"
-        conda activate autodent
+        conda activate hello_3D_world_env
         conda info --envs
