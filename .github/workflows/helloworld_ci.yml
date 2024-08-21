@@ -47,12 +47,6 @@ jobs:
         conda config --show-sources
         conda config --show
 
-    - name: Create hello_3D_world_env environment if cache is not found
-      if: steps.cache-conda-env.outputs.cache-hit != 'true'
-      run: |
-        eval "$($HOME/anaconda/bin/conda shell.bash hook)"
-        conda env create -f conda_env.yml
-
     - name: Activate hello_3D_world_env environment
       shell: bash
       run: |
