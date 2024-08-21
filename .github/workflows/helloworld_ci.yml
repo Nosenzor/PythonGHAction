@@ -22,7 +22,7 @@ jobs:
         path: ~/conda_pkgs_dir
         key:
           ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
-          hashFiles('etc/example-environment.yml') }}
+          hashFiles('conda_env.yml') }}
 
     - uses: actions/setup-python@v5
       with:
