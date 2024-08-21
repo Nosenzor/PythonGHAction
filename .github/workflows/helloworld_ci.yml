@@ -41,19 +41,15 @@ jobs:
         show-channel-urls: true
         use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
 
+
     - run: |
         conda info
         conda list
         conda config --show-sources
         conda config --show
-
-    - name: Activate hello_3D_world_env environment
-      shell: bash
-      run: |
-        eval "$($HOME/anaconda/bin/conda shell.bash hook)"
-        conda init
-        conda activate hello_3D_world_env
         conda info --envs
+        conda activate hello_3D_world_env
+
     # Run the tests
     - name: Run tests
       run: |
