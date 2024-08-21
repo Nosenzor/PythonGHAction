@@ -34,7 +34,7 @@ jobs:
       with:
         activate-environment: hello_3D_world_env
         environment-file: conda_env.yml
-        python-version: 3.10
+        python-version: '3.10'
         channels: conda-forge, pytorch, pypi
         allow-softlinks: true
         channel-priority: flexible
